@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model BowlingLeague.Models.ViewModels.IndexViewModel
+
+
+<div class="text-center">
+    <h3>@Model.TeamName</h3>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    @foreach (var x in Model.Bowlers)
+    {
+        <tbody>
+            <tr>
+                <td>@x.BowlerLastName, @x.BowlerFirstName @x.BowlerMiddleInit</td>
+                <td>@x.BowlerAddress</td>
+                <td>@x.BowlerCity</td>
+                <td>@x.BowlerState</td>
+                <td>@x.BowlerZip</td>
+                <td>@x.BowlerPhoneNumber</td>
+            </tr>
+        </tbody>
+    }
+</table>
+
+<div page-info="@Model.PageNumberingInfo" page-url-teamName="@Model.TeamName"
+     page-class-enabled="true" 
+     page-class="btn" 
+     page-class-selected="btn-primary" 
+     page-class-normal="btn-outline-dark" 
+     class="btn-group pull-right m-1"></div>
